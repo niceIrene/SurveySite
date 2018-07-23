@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewpoint" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Thank you</title>
+    <script>
+    $(function () {
+        var localMsg;
+        if(window.localStorage.final){
+            localMsg=JSON.parse(window.localStorage.final);
+        }
+        if(localMsg && localMsg.length>=1){
+            var realIndex=0;
+            for(var i=0;i<$('#page2 input').length;i++){
+                if($($('#page2 input')[i])[0].type=='text'){
+                    $($('#page2 input')[i]).val(localMsg[realIndex].text)
+                    realIndex++;
+                }else if($($('#page2 input')[i])[0].type=='radio'){
+                    $($('#page2 input')[i]).prop('checked',localMsg[realIndex].radio)
+                    realIndex++;
+                }else if($($('#page2 input')[i])[0].type=='checkbox'){
+                    $($('#page2 input')[i]).prop('checked',localMsg[realIndex].checkbox)
+                    realIndex++;
+                }
+            }
+        }
+        $('#btn_final').click(function () {
+            var history=[];
+            window.localStorage.final='';
+            for(var i=0;i<$('#email input').length;i++){
+                if($($('#email input')[i])[0].type=='text'){
+                    history.push({"text":$($('#email input')[i]).val()})
+                }else if($($('#email input')[i])[0].type=='radio'){
+                    history.push({"radio":$($('#email input')[i]).attr('checked') ? 'checked' :''})
+                }else if($($('#email input')[i])[0].type=='checkbox'){
+                    history.push({"checkbox":$($('#email input')[i]).attr('checked') ? 'checked' :''})
+                }
+            }
+            window.localStorage.final=JSON.stringify(history);
+            var f1=JSON.parse(window.localStorage.getItem("form1"));
+            var f2 =f1.concat(JSON.parse(window.localStorage.getItem("form2")));
+            var f3=f2.concat(JSON.parse(window.localStorage.getItem("form3")));
+            var f4=f3.concat(JSON.parse(window.localStorage.getItem("form4")));
+            var f5=f4.concat(JSON.parse(window.localStorage.getItem("form5")));
+            var f6=f5.concat(JSON.parse(window.localStorage.getItem("form6")));
+            var f7=f6.concat(JSON.parse(window.localStorage.getItem("form7")));
+            var f8=f7.concat(JSON.parse(window.localStorage.getItem("form8")));
+            var f9=f8.concat(JSON.parse(window.localStorage.getItem("form9")));
+            var f10=f9.concat(JSON.parse(window.localStorage.getItem("form10")));
+            var f11=f10.concat(JSON.parse(window.localStorage.getItem("form11")));
+            var f12=f11.concat(JSON.parse(window.localStorage.getItem("form12")));
+            var f13=f12.concat(JSON.parse(window.localStorage.getItem("final")));
+            console.log(f13);
+            alert(JSON.stringify(f13));
+            $.ajax(
+                {
+                    type:"POST",
+                    url:'/thank',
+                    data:JSON.stringify(f13),
+                    success:function (data) {
+                        alert('success');
+                    },
+                    error:function (xhr,type) {
+                        alert('failed');
+
+                    }
+                }
+            );
+            window.localStorage.clear();
+        })
+    })
+</script>
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Thank you</h1>
+    <p>Thank you for your participation.</p>
+  </div>
+  <p>
+      Thank you for participating in our Investigating User Preference for Mobile Ad Usage Patterns survey! Your feedback is extremely valuable.
+  </p>
+  <p>
+      If you indicated on the survey that you would like a copy of the results, they will be sent to you by email at the address you provided by Aug. 20, 2018.
+  </p>
+    <p>
+        This study has been reviewed and received ethics clearance through a University of Waterloo Research Ethics Committee (ORE# ). If you have questions for the Committee contact the Office of Research Ethics, at 1-519-888-4567 ext. 36005 or ore-ceo@uwaterloo.ca.
+    </p>
+    <p>
+        For all other questions or if you have general comments or questions related to this study, please contact Yin Lin, University of Waterloo David R. Cheriton School of Computer Science, 226-899-0751, E-mail:y397lin@uwaterloo.ca.    </p>
+    </p>
+
+    <h1>
+        If you are interested in the survey, you can leave your e-mail address below.
+    </h1>
+   <form role="form" class="form-horizontal" id="email">
+    <!-- question:  -->
+	<div class="form-group">
+		<label for="age">Email</label>
+		<input type="text" class="form-control" id="email"
+			   placeholder="Please leave your email address here">
+	</div>
+     <p>
+         By clicking the following button, you can submit all your previous answers and your email address.
+     </p>
+    <button type="button" class="btn" id="btn_final">Submit</button>
+   </form>
+</div>
+
+<ul class="pagination">
+    <li><a href="page12">&laquo;</a></li>
+    <li ><a href="demographic">1</a></li>
+    <li><a href="page2">2</a></li>
+    <li><a href="page3">3</a></li>
+    <li><a href="page4">4</a></li>
+    <li><a href="page5">5</a></li>
+    <li><a href="page6">6</a></li>
+    <li><a href="page7">7</a></li>
+    <li><a href="page8">8</a></li>
+    <li><a href="page9">9</a></li>
+    <li><a href="page10">10</a></li>
+    <li><a href="page11">11</a></li>
+    <li ><a href="page12">12</a></li>
+    <li class="active">13</li>
+    <li style="color:grey">&raquo;</li>
+</ul>
+
+</body>
+
+
+</html>

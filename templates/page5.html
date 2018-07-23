@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>demographic</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function $$(id) {
+            return document.getElementById(id)
+        }
+        var remain=5;
+        function init() {
+            $$("btn5").innerHTML="Next ("+(remain--)+" second)";
+            if(remain>0){
+                window.setTimeout(init,1000);
+            }
+            else{
+                $$("btn5").disabled = false;
+                $$("btn5").innerHTML = "Next";
+            }
+        }
+    </script>
+
+    <script>
+    $(function () {
+        var localMsg;
+        if(window.localStorage.form5){
+            localMsg=JSON.parse(window.localStorage.form5);
+        }
+        if(localMsg && localMsg.length>=1){
+            var realIndex=0;
+            for(var i=0;i<$('#page2 input').length;i++){
+                if($($('#page5 input')[i])[0].type=='text'){
+                    $($('#page5 input')[i]).val(localMsg[realIndex].text)
+                    realIndex++;
+                }else if($($('#page5 input')[i])[0].type=='radio'){
+                    $($('#page5 input')[i]).prop('checked',localMsg[realIndex].radio)
+                    realIndex++;
+                }else if($($('#page5 input')[i])[0].type=='checkbox'){
+                    $($('#page5 input')[i]).prop('checked',localMsg[realIndex].checkbox)
+                    realIndex++;
+                }
+            }
+        }
+        $('#btn5').click(function () {
+            var history=[];
+            window.localStorage.form5='';
+            for(var i=0;i<$('#page5 input').length;i++){
+                if($($('#page5 input')[i])[0].type=='text'){
+                    history.push({"text":$($('#page5 input')[i]).val()})
+                }else if($($('#page5 input')[i])[0].type=='radio'){
+                    history.push({"radio":$($('#page5 input')[i]).prop('checked') ? 'checked' :''})
+                }else if($($('#page5 input')[i])[0].type=='checkbox'){
+                    history.push({"checkbox":$($('#page5 input')[i]).prop('checked') ? 'checked' :''})
+                }
+            }
+            window.localStorage.form5=JSON.stringify(history);
+        })
+    })
+</script>
+</head>
+<body onload="init()">
+<div class="row">
+    <div class="col-md-6">
+        <img src="/static/banner1.png" class="img-thumbnail" width="50%" height="50%">
+    </div>
+    <div class="col-md-6">
+        <img src="/static/full.png" class="img-thumbnail" width="50%" height="50%">
+    </div>
+</div>
+<label for="position_mt">8. Which size of the mobile ads do you prefer?</label>
+<form role="form" class="form-horizontal" id="page5">
+    <!-- question 2: gender -->
+    <div class="col-md-6">
+        <div class="radio">
+            <label for="mt_middle">
+                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> BANNER
+            </label>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="radio">
+            <label for="mt_top">
+                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> FULL_BANNER
+            </label>
+        </div>
+    </div>
+    <div>
+    <button type="button" id="btn5" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="window.location='page6'">Next</button>
+    </div>
+</form>
+
+
+<ul class="pagination">
+    <li><a href="page4">&laquo;</a></li>
+    <li ><a href="demographic">1</a></li>
+    <li><a href="page2">2</a></li>
+    <li><a href="page3">3</a></li>
+    <li><a href="page4">4</a></li>
+    <li class="active">5</li>
+    <li style="color:grey">6</li>
+    <li style="color:grey">7</li>
+    <li style="color:grey">8</li>
+    <li style="color:grey">9</li>
+    <li style="color:grey">10</li>
+    <li style="color:grey">11</li>
+    <li style="color:grey">12</li>
+    <li style="color:grey">13</li>
+    <li style="color:grey">&raquo;</li>
+</ul>
+
+</body>
+</html>

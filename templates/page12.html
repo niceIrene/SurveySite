@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>demographic</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function $$(id) {
+            return document.getElementById(id)
+        }
+        var remain=15;
+        function init() {
+            $$("btn12").innerHTML="Next ("+(remain--)+" second)";
+            if(remain>0){
+                window.setTimeout(init,1000);
+            }
+            else{
+                $$("btn12").disabled = false;
+                $$("btn12").innerHTML = "Next";
+            }
+        }
+    </script>
+
+    <script>
+    $(function () {
+        var localMsg;
+        if(window.localStorage.form12){
+            localMsg=JSON.parse(window.localStorage.form12);
+        }
+        if(localMsg && localMsg.length>=1){
+            var realIndex=0;
+            for(var i=0;i<$('#page2 input').length;i++){
+                if($($('#page12 input')[i])[0].type=='text'){
+                    $($('#page12 input')[i]).val(localMsg[realIndex].text)
+                    realIndex++;
+                }else if($($('#page12 input')[i])[0].type=='radio'){
+                    $($('#page12 input')[i]).prop('checked',localMsg[realIndex].radio)
+                    realIndex++;
+                }else if($($('#page12 input')[i])[0].type=='checkbox'){
+                    $($('#page12 input')[i]).prop('checked',localMsg[realIndex].checkbox)
+                    realIndex++;
+                }
+            }
+        }
+        $('#btn12').click(function () {
+            var history=[];
+            window.localStorage.form12='';
+            for(var i=0;i<$('#page12 input').length;i++){
+                if($($('#page12 input')[i])[0].type=='text'){
+                    history.push({"text":$($('#page12 input')[i]).val()})
+                }else if($($('#page12 input')[i])[0].type=='radio'){
+                    history.push({"radio":$($('#page12 input')[i]).prop('checked') ? 'checked' :''})
+                }else if($($('#page12 input')[i])[0].type=='checkbox'){
+                    history.push({"checkbox":$($('#page12 input')[i]).prop('checked') ? 'checked' :''})
+                }
+            }
+            window.localStorage.form12=JSON.stringify(history);
+        })
+    })
+</script>
+</head>
+<body onload="init()">
+<div class="row">
+    <div class="col-md-6">
+        <img src="/static/banner.png" class="img-thumbnail" width="50%" height="50%">
+    </div>
+    <div class="col-md-6">
+        <img src="/static/interstitial.gif" class="img-thumbnail" width="110%" height="110%">
+    </div>
+</div>
+<label for="position_mt">15. Which kind of mobile ads format do you prefer, banner or interstitial?</label>
+<form role="form" class="form-horizontal" id="page12">
+    <!-- question 2: gender -->
+    <div class="col-md-6">
+        <div class="radio">
+            <label for="mt_middle">
+                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> Banner
+            </label>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="radio">
+            <label for="mt_top">
+                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> Interstitial
+            </label>
+        </div>
+    </div>
+    <div>
+    <button type="button" id="btn12" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="window.location='thank'">Next</button>
+    </div>
+</form>
+
+<ul class="pagination">
+    <li><a href="page11">&laquo;</a></li>
+    <li ><a href="demographic">1</a></li>
+    <li><a href="page2">2</a></li>
+    <li><a href="page3">3</a></li>
+    <li><a href="page4">4</a></li>
+    <li><a href="page5">5</a></li>
+    <li><a href="page6">6</a></li>
+    <li><a href="page7">7</a></li>
+    <li><a href="page8">8</a></li>
+    <li><a href="page9">9</a></li>
+    <li><a href="page10">10</a></li>
+    <li><a href="page11">11</a></li>
+    <li class="active">12</li>
+    <li style="color:grey">13</li>
+    <li style="color:grey">&raquo;</li>
+</ul>
+
+</body>
+</html>
