@@ -35,6 +35,10 @@
         var localMsg;
         if(window.localStorage.form2){
             localMsg=JSON.parse(window.localStorage.form2);
+            remain = 0;
+            $$("btn1").disabled = false;
+            $$("btn1").innerHTML = "Next";
+
         }
         if(localMsg && localMsg.length>=1){
             var realIndex=0;
@@ -125,22 +129,16 @@
         <ul class="pagination">
             <li><a href="#">&laquo;</a></li>
             <li><a href="demographic">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">8</a></li>
-            <li><a href="#">9</a></li>
-            <li><a href="#">10</a></li>
-            <li><a href="#">11</a></li>
-            <li><a href="#">12</a></li>
-            <li><a href="#">13</a></li>
             <li><a href="#">&raquo;</a></li>
         </ul>
 
     </div>
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">Page 2 of 13</div>
+        <div class="col-md-5"></div>
+    </div>
+
 </div>
 
 </body>
