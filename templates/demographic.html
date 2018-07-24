@@ -3,7 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<title>demographic</title>
-	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <style>
+        .row{
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+    </style>
+
+    <link rel="shortcut icon" href="http://uwaterloo.ca/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
@@ -49,78 +59,108 @@
     </script>
 </head>
 <body>
-<header>
-<h1  style="text-align:center;">Questionnaire about Users' Preference of Mobile Ads Usage Pattern</h1>
-</header>
-</br>
-</br>
-</br>
-</br>
+    <nav class="navbar navbar-default row" role="navigation">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a  href="http://www.uwaterloo.ca"><img class="navbar-img" style="height: 50px" src="https://www.student.cs.uwaterloo.ca/~cs241/uwlogo2.gif" ></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="navbar-left" href="http://swag.cs.uwaterloo.ca" style="font-size: 150%">Software Architecture Group</a>
+                </li>
+            </ul>
+            <div class="navbar-header">
 
-<form role="form" class="form-horizontal" id="demographic">
-    <!-- question 1: age -->
-	<div class="form-group">
-		<label for="age"><h3>1. Age</h3></label>
-		<input type="text" class="form-control" id="age"
-			   placeholder="Age should be an integer" style="font-size:18pt;">
-	</div>
-	<HR SIZE=5>
+                <a class="navbar-brand" href="javascript:void(0)" style="font-size: 250%">Android App Ad Preference Survey</a>
+            </div>
 
-    <!-- question 2: gender -->
-    <label for="Gender"><h3>2. Gender</h3></label>
-    <div class="radio">
-        <label for="Male">
-            <input type="radio" style="font-size:18pt;" name="Gender" id="Male" value=0> Male
-        </label>
+        </div>
+    </nav>
+
+    <header>
+    <h1  style="text-align:center;">Survey on Users' Preference of Mobile Ads Usage Pattern</h1>
+    </header>
+    </br>
+    </br>
+    </br>
+    </br>
+
+
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+
+    <div class="row">
+        <div class="col-md-12">
+            <form role="form" class="form-horizontal" id="demographic">
+                <!-- question 1: age -->
+                <div class="form-group">
+                    <label for="age"><h3>1. Age</h3></label>
+                    <input type="text" class="form-control" id="age"
+                           placeholder="Age should be an integer" style="font-size:18pt;">
+                </div>
+                <HR SIZE=5>
+
+                <!-- question 2: gender -->
+                <label for="Gender"><h3>2. Gender</h3></label>
+                <div class="radio">
+                    <label for="Male">
+                        <input type="radio" style="font-size:18pt;" name="Gender" id="Male" value=0> Male
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="Female">
+                        <input type="radio" name="Gender" id="Female" value=1> Female
+                    </label>
+                </div>
+                <HR SIZE=5>
+                <!-- question 3: experience -->
+                <label for="experience"><h3>3. Do you have prior experience in building mobile apps?</h3></label>
+                <div class="radio">
+                    <label for="yes">
+                        <input type="radio" name="experience" id="yes" value="yes"> Yes
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="no">
+                        <input type="radio" name="experience" id="no" value="no"> No
+                    </label>
+                </div>
+                <HR SIZE=5>
+                <!-- question 4: year -->
+                <div class="form-group">
+                    <label for="year"><h3>4. How long have you used mobile apps?</h3></label>
+                    <input type="text" class="form-control" id="year"
+                           placeholder="This should be an integer" style="font-size:18pt;">
+                </div>
+                <HR SIZE=5>
+                <button type="button" class="btn" onclick="window.location='page2'" id="btn" style="font-size:20pt;">Next</button>
+            </form>
+
+
+
+            <ul class="pagination">
+                <li><a href="#"> &laquo;</a></li>
+                <li ><a href="demographic">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#">9</a></li>
+                <li><a href="#">10</a></li>
+                <li><a href="#">11</a></li>
+                <li><a href="#">12</a></li>
+                <li><a href="#">13</a></li>
+                <li ><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+
+    </div></div>
+        <div class="col-md-1"></div>
     </div>
-    <div class="radio">
-        <label for="Female">
-            <input type="radio" name="Gender" id="Female" value=1> Female
-        </label>
-    </div>
-    <HR SIZE=5>
-    <!-- question 3: experience -->
-    <label for="experience"><h3>3. Do you have prior experience in building mobile apps?</h3></label>
-    <div class="radio">
-        <label for="yes">
-            <input type="radio" name="experience" id="yes" value="yes"> Yes
-        </label>
-    </div>
-    <div class="radio">
-        <label for="no">
-            <input type="radio" name="experience" id="no" value="no"> No
-        </label>
-    </div>
-    <HR SIZE=5>
-    <!-- question 4: year -->
-    <div class="form-group">
-        <label for="year"><h3>4. How long have you used mobile apps</h3></label>
-        <input type="text" class="form-control" id="year"
-               placeholder="This should be an integer" style="font-size:18pt;">
-    </div>
-    <HR SIZE=5>
-	<button type="button" class="btn" onclick="window.location='page2'" id="btn" style="font-size:20pt;">Next</button>
-</form>
-
-
-
-<ul class="pagination">
-    <li style="color:grey">&laquo;</li>
-    <li class="active"><a href="demographic">1</a></li>
-    <li style="color:grey">2</li>
-    <li style="color:grey">3</li>
-    <li style="color:grey">4</li>
-    <li style="color:grey">5</li>
-    <li style="color:grey">6</li>
-    <li style="color:grey">7</li>
-    <li style="color:grey">8</li>
-    <li style="color:grey">9</li>
-    <li style="color:grey">10</li>
-    <li style="color:grey">11</li>
-    <li style="color:grey">12</li>
-    <li style="color:grey">13</li>
-    <li style="color:grey">&raquo;</li>
-</ul>
-
 </body>
 </html>
