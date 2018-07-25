@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>demographic</title>
+	<title>page11</title>
 
     <style>
         .row{
@@ -15,6 +15,34 @@
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function check() {
+            var count=0;
+            var realIndex = 0;
+            for(var i=0;i<$('#page11 input').length;i++){
+                if($($('#page11 input')[i])[0].type=='text'){
+                    if($($('#page11 input')[i]).val().length>0){
+                        count++;
+                    }
+                    realIndex++;
+                }
+                if($($('#page11 input')[i])[0].type=='radio'){
+                    if($($('#page11 input')[i]).prop('checked')){
+                        count++;
+                    }
+                    realIndex++;
+                }
+            }
+            if(count == 1){
+                window.location = 'page12';
+            }
+            else{
+                alert("Please finish all the questions!");
+            }
+        }
+    </script>
+
+
     <script type="text/javascript">
         function $$(id) {
             return document.getElementById(id)
@@ -40,7 +68,7 @@
         }
         if(localMsg && localMsg.length>=1){
             var realIndex=0;
-            for(var i=0;i<$('#page2 input').length;i++){
+            for(var i=0;i<$('#page11 input').length;i++){
                 if($($('#page11 input')[i])[0].type=='text'){
                     $($('#page11 input')[i]).val(localMsg[realIndex].text)
                     realIndex++;
@@ -52,6 +80,8 @@
                     realIndex++;
                 }
             }
+            $("btn11").disabled = false;
+            $("btn11").innerHTML = "Next";
         }
         $('#btn11').click(function () {
             var history=[];
@@ -99,50 +129,50 @@
     <div class="col-md-10">
 <div class="row">
     <div class="col-md-6">
-        <img src="/static/1.gif" class="img-thumbnail" width="110%" height="110%">
+        <img src="/static/yes.gif" class="img-thumbnail" width="110%" height="110%">
     </div>
     <div class="col-md-6">
-        <img src="/static/3.gif" class="img-thumbnail" width="110%" height="110%">
+        <img src="/static/no.gif" class="img-thumbnail" width="110%" height="110%">
     </div>
 </div>
-<label for="position_mt">14. Which one do you prefer in aspect of ads content repeated ratio?</label>
+<label for="position_mt">14. Do you like ads in the landing page?</label>
 <form role="form" class="form-horizontal" id="page11">
     <!-- question 2: gender -->
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_middle">
-                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> Often
+                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> Yes
             </label>
         </div>
     </div>
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_top">
-                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> Less Often
+                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> No
             </label>
         </div>
     </div>
     <div>
-    <button type="button" id="btn11" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="window.location='page12'">Next</button>
+    <button type="button" id="btn11" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="check()">Next</button>
     </div>
 </form>
 
-<ul class="pagination">
-    <li><a href="page10">&laquo;</a></li>
-    <li ><a href="demographic">1</a></li>
-    <li><a href="page2">2</a></li>
-    <li><a href="page3">3</a></li>
-    <li><a href="page4">4</a></li>
-    <li><a href="page5">5</a></li>
-    <li><a href="page6">6</a></li>
-    <li><a href="page7">7</a></li>
-    <li><a href="page8">8</a></li>
-    <li><a href="page9">9</a></li>
-    <li><a href="page10">10</a></li>
-    <li><a href="#">11</a></li>
-    <li><a href="#">12</a></li>
-    <li><a href="#">13</a></li>
-    <li><a href="#">&raquo;</a></li></ul>
+          <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li class="active"><a href="#">11</a></li>
+            <li><a href="#">12</a></li>
+            <li><a href="#">end</a></li>
+        </ul>
+
     </div>
 </div>
 </body>

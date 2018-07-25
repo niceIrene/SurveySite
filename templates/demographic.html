@@ -17,6 +17,39 @@
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
+        function check() {
+            var count=0;
+            var realIndex = 0;
+            for(var i=0;i<$('#demographic input').length;i++){
+                if($($('#demographic input')[i])[0].type=='text'){
+                    if($($('#demographic input')[i]).val().length>0){
+                        count++;
+                    }
+                    realIndex++;
+                }
+                if($($('#demographic input')[i])[0].type=='radio'){
+                    if($($('#demographic input')[i]).prop('checked')){
+                        count++;
+                    }
+                    realIndex++;
+                }
+            }
+            if(count == 4){
+                var x = Math.random();
+                if(x<0.5){
+                    window.location='page2';
+                }
+                else{
+                    window.location='page2_1'
+                }
+            }
+            else{
+                alert("Please finish all the questions!");
+            }
+        }
+    </script>
+
+    <script>
     $(function () {
         var localMsg;
         if(window.localStorage.form1){
@@ -50,7 +83,6 @@
                 }
             }
             window.localStorage.form1=JSON.stringify(history);
-            alert("saved");
         })
     })
 </script>
@@ -135,28 +167,26 @@
                            placeholder="This should be an integer" style="font-size:18pt;">
                 </div>
                 <HR SIZE=5>
-                <button type="button" class="btn" onclick="window.location='page2'" id="btn" style="font-size:20pt;">Next</button>
+                <button type="button" class="btn" onclick="check()" id="btn" style="font-size:20pt;">Next</button>
             </form>
 
 
 
-            <ul class="pagination">
-                <li><a href="#"> &laquo;</a></li>
-                <li ><a href="demographic">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">6</a></li>
-                <li><a href="#">7</a></li>
-                <li><a href="#">8</a></li>
-                <li><a href="#">9</a></li>
-                <li><a href="#">10</a></li>
-                <li><a href="#">11</a></li>
-                <li><a href="#">12</a></li>
-                <li><a href="#">13</a></li>
-                <li ><a href="#">&raquo;</a></li>
-            </ul>
+         <ul class="pagination">
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li><a href="#">11</a></li>
+            <li><a href="#">12</a></li>
+            <li><a href="#">end</a></li>
+        </ul>
         </div>
 
     </div></div>

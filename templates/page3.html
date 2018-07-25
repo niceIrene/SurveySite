@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>demographic</title>
+	<title>page3</title>
     <style>
         .row{
             margin-left: 0;
@@ -31,6 +31,33 @@
             }
         }
     </script>
+    <script>
+        function check() {
+            var count=0;
+            var realIndex = 0;
+            for(var i=0;i<$('#page3 input').length;i++){
+                if($($('#page3 input')[i])[0].type=='text'){
+                    if($($('#page3 input')[i]).val().length>0){
+                        count++;
+                    }
+                    realIndex++;
+                }
+                if($($('#page3 input')[i])[0].type=='radio'){
+                    if($($('#page3 input')[i]).prop('checked')){
+                        count++;
+                    }
+                    realIndex++;
+                }
+            }
+            if(count == 1){
+                window.location = 'page4';
+            }
+            else{
+                alert("Please finish all the questions!");
+            }
+        }
+    </script>
+
 
     <script>
     $(function () {
@@ -40,7 +67,7 @@
         }
         if(localMsg && localMsg.length>=1){
             var realIndex=0;
-            for(var i=0;i<$('#page2 input').length;i++){
+            for(var i=0;i<$('#page3 input').length;i++){
                 if($($('#page3 input')[i])[0].type=='text'){
                     $($('#page3 input')[i]).val(localMsg[realIndex].text)
                     realIndex++;
@@ -52,6 +79,8 @@
                     realIndex++;
                 }
             }
+            $("btn3").disabled = false;
+            $("btn3").innerHTML = "Next";
         }
         $('#btn3').click(function () {
             var history=[];
@@ -121,28 +150,26 @@
         </div>
     </div>
     <div>
-    <button type="button" id="btn3" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="window.location='page4'">Next</button>
+    <button type="button" id="btn3" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="check()">Next</button>
     </div>
 </form>
 
 
-<ul class="pagination">
-    <li><a href="page2">&laquo;</a></li>
-    <li ><a href="demographic">1</a></li>
-    <li><a href="page2">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">6</a></li>
-    <li><a href="#">7</a></li>
-    <li><a href="#">8</a></li>
-    <li><a href="#">9</a></li>
-    <li><a href="#">10</a></li>
-    <li><a href="#">11</a></li>
-    <li><a href="#">12</a></li>
-    <li><a href="#">13</a></li>
-    <li><a href="#">&raquo;</a></li>
-</ul>
+        <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li class="active"><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li><a href="#">11</a></li>
+            <li><a href="#">12</a></li>
+            <li><a href="#">end</a></li>
+        </ul>
     </div>
 </div>
 </body>

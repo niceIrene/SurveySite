@@ -2,11 +2,39 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>demographic</title>
+	<title>page6</title>
     <link rel="shortcut icon" href="http://uwaterloo.ca/favicon.ico" type="image/vnd.microsoft.icon" />
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function check() {
+            var count=0;
+            var realIndex = 0;
+            for(var i=0;i<$('#page6 input').length;i++){
+                if($($('#page6 input')[i])[0].type=='text'){
+                    if($($('#page6 input')[i]).val().length>0){
+                        count++;
+                    }
+                    realIndex++;
+                }
+                if($($('#page6 input')[i])[0].type=='radio'){
+                    if($($('#page6 input')[i]).prop('checked')){
+                        count++;
+                    }
+                    realIndex++;
+                }
+            }
+            if(count == 1){
+                window.location = 'page7';
+            }
+            else{
+                alert("Please finish all the questions!");
+            }
+        }
+    </script>
+
+
     <script type="text/javascript">
         function $$(id) {
             return document.getElementById(id)
@@ -32,7 +60,7 @@
         }
         if(localMsg && localMsg.length>=1){
             var realIndex=0;
-            for(var i=0;i<$('#page2 input').length;i++){
+            for(var i=0;i<$('#page6 input').length;i++){
                 if($($('#page6 input')[i])[0].type=='text'){
                     $($('#page6 input')[i]).val(localMsg[realIndex].text)
                     realIndex++;
@@ -43,6 +71,8 @@
                     $($('#page6 input')[i]).prop('checked',localMsg[realIndex].checkbox)
                     realIndex++;
                 }
+                $("btn6").disabled = false;
+                $("btn6").innerHTML = "Next";
             }
         }
         $('#btn6').click(function () {
@@ -115,29 +145,28 @@
         </div>
     </div>
     <div>
-    <button type="button" id="btn6" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="window.location='page7'">Next</button>
+    <button type="button" id="btn6" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="check()">Next</button>
     </div>
 </form>
 
+          <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li class="active"><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li><a href="#">11</a></li>
+            <li><a href="#">12</a></li>
+            <li><a href="#">end</a></li>
+        </ul>
 
-<ul class="pagination">
-    <li><a href="page5">&laquo;</a></li>
-    <li ><a href="demographic">1</a></li>
-    <li><a href="page2">2</a></li>
-    <li><a href="page3">3</a></li>
-    <li><a href="page4">4</a></li>
-    <li><a href="page5">5</a></li>
-    <li><a href="#">6</a></li>
-    <li ><a href="#">7</a></li>
-    <li ><a href="#">8</a></li>
-    <li ><a href="#">9</a></li>
-    <li ><a href="#">10</a></li>
-    <li ><a href="#">11</a></li>
-    <li ><a href="#">12</a></li>
-    <li ><a href="#">end</a></li>
-    <li ><a href="#">&raquo;</a></li>
-</ul>
-    </div></div>
+    </div>
+</div>
 
 </body>
 </html>

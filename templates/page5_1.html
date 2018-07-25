@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>page10</title>
+	<title>page5</title>
 
     <style>
         .row{
@@ -20,22 +20,22 @@
         function check() {
             var count=0;
             var realIndex = 0;
-            for(var i=0;i<$('#page10 input').length;i++){
-                if($($('#page10 input')[i])[0].type=='text'){
-                    if($($('#page10 input')[i]).val().length>0){
+            for(var i=0;i<$('#page5 input').length;i++){
+                if($($('#page5 input')[i])[0].type=='text'){
+                    if($($('#page5 input')[i]).val().length>0){
                         count++;
                     }
                     realIndex++;
                 }
-                if($($('#page10 input')[i])[0].type=='radio'){
-                    if($($('#page10 input')[i]).prop('checked')){
+                if($($('#page5 input')[i])[0].type=='radio'){
+                    if($($('#page5 input')[i]).prop('checked')){
                         count++;
                     }
                     realIndex++;
                 }
             }
             if(count == 1){
-                window.location = 'page11';
+                window.location = 'page6_1';
             }
             else{
                 alert("Please finish all the questions!");
@@ -48,15 +48,15 @@
         function $$(id) {
             return document.getElementById(id)
         }
-        var remain=15;
+        var remain=5;
         function init() {
-            $$("btn10").innerHTML="Next ("+(remain--)+" second)";
+            $$("btn5").innerHTML="Next ("+(remain--)+" second)";
             if(remain>0){
                 window.setTimeout(init,1000);
             }
             else{
-                $$("btn10").disabled = false;
-                $$("btn10").innerHTML = "Next";
+                $$("btn5").disabled = false;
+                $$("btn5").innerHTML = "Next";
             }
         }
     </script>
@@ -64,46 +64,43 @@
     <script>
     $(function () {
         var localMsg;
-        if(window.localStorage.form10){
-            localMsg=JSON.parse(window.localStorage.form10);
+        if(window.localStorage.form5){
+            localMsg=JSON.parse(window.localStorage.form5);
         }
         if(localMsg && localMsg.length>=1){
             var realIndex=0;
-            for(var i=0;i<$('#page10 input').length;i++){
-                if($($('#page10 input')[i])[0].type=='text'){
-                    $($('#page10 input')[i]).val(localMsg[realIndex].text)
+            for(var i=0;i<$('#page5 input').length;i++){
+                if($($('#page5 input')[i])[0].type=='text'){
+                    $($('#page5 input')[i]).val(localMsg[realIndex].text)
                     realIndex++;
-                }else if($($('#page10 input')[i])[0].type=='radio'){
-                    $($('#page10 input')[i]).prop('checked',localMsg[realIndex].radio)
+                }else if($($('#page5 input')[i])[0].type=='radio'){
+                    $($('#page5 input')[i]).prop('checked',localMsg[realIndex].radio)
                     realIndex++;
-                }else if($($('#page10 input')[i])[0].type=='checkbox'){
-                    $($('#page10 input')[i]).prop('checked',localMsg[realIndex].checkbox)
+                }else if($($('#page5 input')[i])[0].type=='checkbox'){
+                    $($('#page5 input')[i]).prop('checked',localMsg[realIndex].checkbox)
                     realIndex++;
                 }
             }
-            $("btn10").disabled = false;
-            $("btn10").innerHTML = "Next";
+            $("btn5").disabled = false;
+            $("btn5").innerHTML = "Next";
         }
-        $('#btn10').click(function () {
+        $('#btn5').click(function () {
             var history=[];
-            window.localStorage.form10='';
-            for(var i=0;i<$('#page10 input').length;i++){
-                if($($('#page10 input')[i])[0].type=='text'){
-                    history.push({"text":$($('#page10 input')[i]).val()})
-                }else if($($('#page10 input')[i])[0].type=='radio'){
-                    history.push({"radio":$($('#page10 input')[i]).prop('checked') ? 'checked' :''})
-                }else if($($('#page10 input')[i])[0].type=='checkbox'){
-                    history.push({"checkbox":$($('#page10 input')[i]).prop('checked') ? 'checked' :''})
+            window.localStorage.form5='';
+            for(var i=0;i<$('#page5 input').length;i++){
+                if($($('#page5 input')[i])[0].type=='text'){
+                    history.push({"text":$($('#page5 input')[i]).val()})
+                }else if($($('#page5 input')[i])[0].type=='radio'){
+                    history.push({"radio":$($('#page5 input')[i]).prop('checked') ? 'checked' :''})
+                }else if($($('#page5 input')[i])[0].type=='checkbox'){
+                    history.push({"checkbox":$($('#page5 input')[i]).prop('checked') ? 'checked' :''})
                 }
             }
-            window.localStorage.form10=JSON.stringify(history);
+            window.localStorage.form5=JSON.stringify(history);
         })
     })
 </script>
 </head>
-<body onload="init()">
-
-
 <body onload="init()">
 <nav class="navbar navbar-default row" role="navigation">
     <div class="navbar-collapse collapse">
@@ -127,52 +124,57 @@
 
 <div class="row">
     <div class="col-md-1"></div>
-    <div class="col-md-10">
+    <div class="col-md-11">
+
 <div class="row">
     <div class="col-md-6">
-        <img src="/static/1.gif" class="img-thumbnail" width="110%" height="110%">
+        <img src="/static/full.png" class="img-thumbnail" width="50%" height="50%">
     </div>
     <div class="col-md-6">
-        <img src="/static/3.gif" class="img-thumbnail" width="110%" height="110%">
+        <img src="/static/banner1.png" class="img-thumbnail" width="50%" height="50%">
     </div>
 </div>
-<label for="position_mt">13. Which one do you prefer in aspect of ads content repeated ratio?</label>
-<form role="form" class="form-horizontal" id="page10">
+<label for="position_mt">8. Which size of the mobile ads do you prefer?</label>
+<form role="form" class="form-horizontal" id="page5">
     <!-- question 2: gender -->
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_middle">
-                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> Often
+                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> FULL_BANNER
             </label>
         </div>
     </div>
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_top">
-                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> Less Often
+                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> BANNER
             </label>
         </div>
     </div>
     <div>
-    <button type="button" id="btn10" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="check()">Next</button>
+    <button type="button" id="btn5" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="check()">Next</button>
     </div>
 </form>
+
 
          <ul class="pagination">
             <li><a href="#">1</a></li>
             <li><a href="#">2</a></li>
             <li><a href="#">3</a></li>
             <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+            <li class="active"><a href="#">5</a></li>
             <li><a href="#">6</a></li>
             <li><a href="#">7</a></li>
             <li><a href="#">8</a></li>
             <li><a href="#">9</a></li>
-            <li class="active"><a href="#">10</a></li>
+            <li><a href="#">10</a></li>
             <li><a href="#">11</a></li>
             <li><a href="#">12</a></li>
             <li><a href="#">end</a></li>
         </ul>
+</div>
+</div>
+
 
 </body>
 </html>

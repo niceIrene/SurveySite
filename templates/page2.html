@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>demographic</title>
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>page2</title>
     <style>
         .row{
             margin-left: 0;
@@ -13,11 +13,39 @@
     </style>
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function check() {
+            var count=0;
+            var realIndex = 0;
+            for(var i=0;i<$('#page2 input').length;i++){
+                if($($('#page2 input')[i])[0].type=='text'){
+                    if($($('#page2 input')[i]).val().length>0){
+                        count++;
+                    }
+                    realIndex++;
+                }
+                if($($('#page2 input')[i])[0].type=='radio'){
+                    if($($('#page2 input')[i]).prop('checked')){
+                        count++;
+                    }
+                    realIndex++;
+                }
+            }
+            if(count == 1){
+                window.location = 'page3';
+            }
+            else{
+                alert("Please finish all the questions!");
+            }
+        }
+    </script>
+
     <script type="text/javascript">
         function $$(id) {
             return document.getElementById(id)
         }
-        var remain=5;
+        var remain=10;
+        alert("For each question, you need to wait until the countdown ends.");
         function init() {
             $$("btn1").innerHTML="Next ("+(remain--)+" second)";
             if(remain>0){
@@ -35,10 +63,6 @@
         var localMsg;
         if(window.localStorage.form2){
             localMsg=JSON.parse(window.localStorage.form2);
-            remain = 0;
-            $$("btn1").disabled = false;
-            $$("btn1").innerHTML = "Next";
-
         }
         if(localMsg && localMsg.length>=1){
             var realIndex=0;
@@ -54,6 +78,8 @@
                     realIndex++;
                 }
             }
+            $("btn1").disabled = false;
+            $("btn1").innerHTML = "Next";
         }
         $('#btn1').click(function () {
             var history=[];
@@ -63,8 +89,6 @@
                     history.push({"text":$($('#page2 input')[i]).val()})
                 }else if($($('#page2 input')[i])[0].type=='radio'){
                     history.push({"radio":$($('#page2 input')[i]).prop('checked') ? 'checked' :''})
-                }else if($($('#page2 input')[i])[0].type=='checkbox'){
-                    history.push({"checkbox":$($('#page2 input')[i]).prop('checked') ? 'checked' :''})
                 }
             }
             window.localStorage.form2=JSON.stringify(history);
@@ -123,22 +147,26 @@
         </div>
     </div>
     <div>
-    <button type="button" id="btn1" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="window.location='page3'">Next</button>
+    <button type="button" id="btn1" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="check()">Next</button>
     </div>
 </form>
         <ul class="pagination">
-            <li><a href="#">&laquo;</a></li>
-            <li><a href="demographic">1</a></li>
-            <li><a href="#">&raquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li><a href="#">11</a></li>
+            <li><a href="#">12</a></li>
+            <li><a href="#">end</a></li>
         </ul>
 
     </div>
-    <div class="row">
-        <div class="col-md-5"></div>
-        <div class="col-md-2">Page 2 of 13</div>
-        <div class="col-md-5"></div>
-    </div>
-
 </div>
 
 </body>
