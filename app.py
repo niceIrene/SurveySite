@@ -63,10 +63,10 @@ class Result(db.Model):
         self.freq_2 = f_2
         self.repeated_1 = r_1
         self.repeated_2 = r_2
-        self.type_1 = t_1
-        self.type_2 = t_2
         self.landing_1 = l_1
         self.landing_2 = l_2
+        self.type_1 = t_1
+        self.type_2 = t_2
         self.email = email
 
     def __repr__(self):
@@ -138,9 +138,78 @@ def page12():
     return render_template('page12.html')
 
 
-@app.route('/thank')
-def thank():
-    return render_template('thank.html')
+@app.route('/page2_1')
+def page2_1():
+    return render_template('page2_1.html')
+
+
+@app.route('/page3_1')
+def page3_1():
+    return render_template('page3_1.html')
+
+
+@app.route('/page4_1')
+def page4_1():
+    return render_template('page4_1.html')
+
+
+@app.route('/page5_1')
+def page5_1():
+    return render_template('page5_1.html')
+
+
+@app.route('/page6_1')
+def page6_1():
+    return render_template('page6_1.html')
+
+
+@app.route('/page7_1')
+def page7_1():
+    return render_template('page7_1.html')
+
+
+@app.route('/page8_1')
+def page8_1():
+    return render_template('page8_1.html')
+
+
+@app.route('/page9_1')
+def page9_1():
+    return render_template('page9_1.html')
+
+
+@app.route('/page10_1')
+def page10_1():
+    return render_template('page10_1.html')
+
+
+@app.route('/page11_1')
+def page11_1():
+    return render_template('page11_1.html')
+
+
+@app.route('/page12_1')
+def page12_1():
+    return render_template('page12_1.html')
+
+
+@app.route('/thank_1', methods=['GET','POST'])
+def upload_1():
+    if request.method == 'POST':
+        data = request.get_data()
+        data = str(data, encoding="utf-8")
+        reslist = data.split('"')
+        res = []
+        for i in range(len(reslist)):
+            tmp = i
+            if ((tmp+1)%4 == 0):
+                res.append(reslist[tmp])
+        inputt = Result(res[0],res[1],res[2],res[3],res[4],res[5],res[7],res[6],res[9],res[8],res[11],res[10],res[13],res[12],
+                        res[15],res[14],res[17],res[16],res[19],res[18],res[21],res[20],res[23],res[22],res[25],res[24],res[27],res[26],res[28])
+        db.session.add(inputt)
+        db.session.commit()
+        print("finish!")
+    return render_template('thank_1.html')
 
 
 @app.route('/thank', methods=['GET','POST'])
@@ -148,25 +217,16 @@ def upload():
     if request.method == 'POST':
         data = request.get_data()
         data = str(data, encoding="utf-8")
-        print (data)
-        print (type(data))
-        print (data[0])
-        print (data[1])
-        print (data[28])
         reslist = data.split('"')
-        print(reslist)
-        print(len(reslist))
         res = []
         for i in range(len(reslist)):
             tmp = i
             if ((tmp+1)%4 == 0):
                 res.append(reslist[tmp])
-        print (res)
-        print (len(res))
         inputt = Result(res[0],res[1],res[2],res[3],res[4],res[5],res[6],res[7],res[8],res[9],res[10],res[11],res[12],res[13],
                         res[14],res[15],res[16],res[17],res[18],res[19],res[20],res[21],res[22],res[23],res[24],res[25],res[26],res[27],res[28])
-        #db.session.add(inputt)
-        #db.session.commit()
+        db.session.add(inputt)
+        db.session.commit()
         print("finish!")
     return render_template('thank.html')
 

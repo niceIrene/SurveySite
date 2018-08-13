@@ -17,6 +17,39 @@
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
+        function check() {
+            var count=0;
+            var realIndex = 0;
+            for(var i=0;i<$('#demographic input').length;i++){
+                if($($('#demographic input')[i])[0].type=='text'){
+                    if($($('#demographic input')[i]).val().length>0){
+                        count++;
+                    }
+                    realIndex++;
+                }
+                if($($('#demographic input')[i])[0].type=='radio'){
+                    if($($('#demographic input')[i]).prop('checked')){
+                        count++;
+                    }
+                    realIndex++;
+                }
+            }
+            if(count == 4){
+                var x = Math.random();
+                if(x<0.5){
+                    window.location='page2';
+                }
+                else{
+                    window.location='page2_1'
+                }
+            }
+            else{
+                alert("Please finish all the questions!");
+            }
+        }
+    </script>
+
+    <script>
     $(function () {
         var localMsg;
         if(window.localStorage.form1){
@@ -50,7 +83,6 @@
                 }
             }
             window.localStorage.form1=JSON.stringify(history);
-            alert("saved");
         })
     })
 </script>
@@ -96,69 +128,51 @@
             <form role="form" class="form-horizontal" id="demographic">
                 <!-- question 1: age -->
                 <div class="form-group">
-                    <label for="age"><h3>1. Age</h3></label>
+                    <h2 for="age"><b><font face="verdana">1. Age</font></b></h2>
                     <input type="text" class="form-control" id="age"
                            placeholder="Age should be an integer" style="font-size:18pt;">
                 </div>
                 <HR SIZE=5>
 
                 <!-- question 2: gender -->
-                <label for="Gender"><h3>2. Gender</h3></label>
+                <h2 for="Gender"><b><font face="verdana">2. Gender</font></b></h2>
                 <div class="radio">
                     <label for="Male">
-                        <input type="radio" style="font-size:18pt;" name="Gender" id="Male" value=0> Male
+                        <input type="radio" style="font-size:18pt;" name="Gender" id="Male" value=0> <h4>Male</h4>
                     </label>
                 </div>
                 <div class="radio">
                     <label for="Female">
-                        <input type="radio" name="Gender" id="Female" value=1> Female
+                        <input type="radio" name="Gender" id="Female" value=1> <h4>Female</h4>
                     </label>
                 </div>
                 <HR SIZE=5>
                 <!-- question 3: experience -->
-                <label for="experience"><h3>3. Do you have prior experience in building mobile apps?</h3></label>
+                <h2 for="experience"><b><font face="verdana">3. Do you have prior experience in building mobile apps?</font></b></h2>
                 <div class="radio">
                     <label for="yes">
-                        <input type="radio" name="experience" id="yes" value="yes"> Yes
+                        <input type="radio" name="experience" id="yes" value="yes"> <h4>Yes</h4>
                     </label>
                 </div>
                 <div class="radio">
                     <label for="no">
-                        <input type="radio" name="experience" id="no" value="no"> No
+                        <input type="radio" name="experience" id="no" value="no"> <h4>No</h4>
                     </label>
                 </div>
                 <HR SIZE=5>
                 <!-- question 4: year -->
                 <div class="form-group">
-                    <label for="year"><h3>4. How long have you used mobile apps?</h3></label>
+                    <h2 for="year"><b><font face="verdana">4. How long have you used mobile apps?</font></b></h2>
                     <input type="text" class="form-control" id="year"
                            placeholder="This should be an integer" style="font-size:18pt;">
                 </div>
                 <HR SIZE=5>
-                <button type="button" class="btn" onclick="window.location='page2'" id="btn" style="font-size:20pt;">Next</button>
+                <button type="button" class="btn" onclick="check()" id="btn" style="font-size:20pt;">Next</button>
             </form>
 
 
 
-            <ul class="pagination">
-                <li><a href="#"> &laquo;</a></li>
-                <li ><a href="demographic">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">6</a></li>
-                <li><a href="#">7</a></li>
-                <li><a href="#">8</a></li>
-                <li><a href="#">9</a></li>
-                <li><a href="#">10</a></li>
-                <li><a href="#">11</a></li>
-                <li><a href="#">12</a></li>
-                <li><a href="#">13</a></li>
-                <li ><a href="#">&raquo;</a></li>
-            </ul>
-        </div>
-
+            <h3 style="color: darkgray">page 1 out of 12</h3>
     </div></div>
         <div class="col-md-1"></div>
     </div>

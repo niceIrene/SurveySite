@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>page6</title>
+	<title>page3</title>
     <style>
         .row{
             margin-left: 0;
             margin-right: 0;
         }
-        .myButton {
+       .myButton {
 	-moz-box-shadow: 0px 10px 14px -7px #ffffff;
 	-webkit-box-shadow: 0px 10px 14px -7px #ffffff;
 	box-shadow: 0px 10px 14px -7px #ffffff;
@@ -43,32 +43,48 @@
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
 	background-color:#f6f6f6;
 }
-
     </style>
+
     <link rel="shortcut icon" href="http://uwaterloo.ca/favicon.ico" type="image/vnd.microsoft.icon" />
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function $$(id) {
+            return document.getElementById(id)
+        }
+        var remain=10;
+        function init() {
+            $$("btn3").innerHTML="("+(remain--)+" second)";
+            if(remain>0){
+                window.setTimeout(init,1000);
+            }
+            else{
+                $$("btn3").disabled = false;
+                $$("btn3").innerHTML = "Next";
+            }
+        }
+    </script>
     <script>
         function check() {
             var count=0;
             var realIndex = 0;
-            for(var i=0;i<$('#page6 input').length;i++){
-                if($($('#page6 input')[i])[0].type=='text'){
-                    if($($('#page6 input')[i]).val().length>0){
+            for(var i=0;i<$('#page3 input').length;i++){
+                if($($('#page3 input')[i])[0].type=='text'){
+                    if($($('#page3 input')[i]).val().length>0){
                         count++;
                     }
                     realIndex++;
                 }
-                if($($('#page6 input')[i])[0].type=='radio'){
-                    if($($('#page6 input')[i]).prop('checked')){
+                if($($('#page3 input')[i])[0].type=='radio'){
+                    if($($('#page3 input')[i]).prop('checked')){
                         count++;
                     }
                     realIndex++;
                 }
             }
             if(count == 1){
-                window.location = 'page7';
+                window.location = 'page4_1';
             }
             else{
                 alert("Please finish all the questions!");
@@ -77,65 +93,46 @@
     </script>
 
 
-    <script type="text/javascript">
-        function $$(id) {
-            return document.getElementById(id)
-        }
-        var remain=10;
-        function init() {
-            $$("btn6").innerHTML="("+(remain--)+" second)";
-            if(remain>0){
-                window.setTimeout(init,1000);
-            }
-            else{
-                $$("btn6").disabled = false;
-                $$("btn6").innerHTML = "Next";
-            }
-        }
-    </script>
-
     <script>
     $(function () {
         var localMsg;
-        if(window.localStorage.form6){
-            localMsg=JSON.parse(window.localStorage.form6);
+        if(window.localStorage.form3){
+            localMsg=JSON.parse(window.localStorage.form3);
         }
         if(localMsg && localMsg.length>=1){
             var realIndex=0;
-            for(var i=0;i<$('#page6 input').length;i++){
-                if($($('#page6 input')[i])[0].type=='text'){
-                    $($('#page6 input')[i]).val(localMsg[realIndex].text)
+            for(var i=0;i<$('#page3 input').length;i++){
+                if($($('#page3 input')[i])[0].type=='text'){
+                    $($('#page3 input')[i]).val(localMsg[realIndex].text)
                     realIndex++;
-                }else if($($('#page6 input')[i])[0].type=='radio'){
-                    $($('#page6 input')[i]).prop('checked',localMsg[realIndex].radio)
+                }else if($($('#page3 input')[i])[0].type=='radio'){
+                    $($('#page3 input')[i]).prop('checked',localMsg[realIndex].radio)
                     realIndex++;
-                }else if($($('#page6 input')[i])[0].type=='checkbox'){
-                    $($('#page6 input')[i]).prop('checked',localMsg[realIndex].checkbox)
+                }else if($($('#page3 input')[i])[0].type=='checkbox'){
+                    $($('#page3 input')[i]).prop('checked',localMsg[realIndex].checkbox)
                     realIndex++;
                 }
-                $("btn6").disabled = false;
-                $("btn6").innerHTML = "Next";
             }
+            $("btn3").disabled = false;
+            $("btn3").innerHTML = "Next";
         }
-        $('#btn6').click(function () {
+        $('#btn3').click(function () {
             var history=[];
-            window.localStorage.form6='';
-            for(var i=0;i<$('#page6 input').length;i++){
-                if($($('#page6 input')[i])[0].type=='text'){
-                    history.push({"text":$($('#page6 input')[i]).val()})
-                }else if($($('#page6 input')[i])[0].type=='radio'){
-                    history.push({"radio":$($('#page6 input')[i]).prop('checked') ? 'checked' :''})
-                }else if($($('#page6 input')[i])[0].type=='checkbox'){
-                    history.push({"checkbox":$($('#page6 input')[i]).prop('checked') ? 'checked' :''})
+            window.localStorage.form3='';
+            for(var i=0;i<$('#page3 input').length;i++){
+                if($($('#page3 input')[i])[0].type=='text'){
+                    history.push({"text":$($('#page3 input')[i]).val()})
+                }else if($($('#page3 input')[i])[0].type=='radio'){
+                    history.push({"radio":$($('#page3 input')[i]).prop('checked') ? 'checked' :''})
+                }else if($($('#page3 input')[i])[0].type=='checkbox'){
+                    history.push({"checkbox":$($('#page3 input')[i]).prop('checked') ? 'checked' :''})
                 }
             }
-            window.localStorage.form6=JSON.stringify(history);
+            window.localStorage.form3=JSON.stringify(history);
         })
     })
 </script>
 </head>
-
-
 <body onload="init()">
 <nav class="navbar navbar-default row" role="navigation">
     <div class="navbar-collapse collapse">
@@ -161,33 +158,29 @@
     <div class="col-md-1"></div>
     <div class="col-md-11">
 
-        <h2 for="position_mt"><b><font face="verdana">9. Which one do you prefer in terms of ads number per page?</font></b></h2>
-<form role="form" class="form-horizontal" id="page6">
+        <h2 for="position_mt"><b><font face="verdana">6. Which position of the mobile ads do you prefer, bottom or middle?</font></b></h2>
+<form role="form" class="form-horizontal" id="page3">
     <!-- question 2: gender -->
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_middle">
-                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> <img src="/static/freq_21.png" class="img-thumbnail" width="60%" height="60%">
+                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> <img src="/static/middle.png" class="img-thumbnail" width="60%" height="60%">
             </label>
         </div>
     </div>
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_top">
-                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> <img src="/static/freq_22.png" class="img-thumbnail" width="60%" height="60%">
+                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> <img src="/static/bottom.png" class="img-thumbnail" width="60%" height="60%">
             </label>
         </div>
     </div>
-
-    <h3 style="color: darkgray">page 6 out of 12</h3>
+<h3 style="color: darkgray">page 3 out of 12</h3>
 </form>
-   <div style="position:relative;left:550px">
-    <button type="button" id="btn6" disabled="disabled" class="myButton" onclick="check()"></button>
+    <div style="position:relative;left:550px">
+    <button type="button" id="btn3" disabled="disabled" class="myButton" onclick="check()"></button>
     </div>
-
-
     </div>
 </div>
-
 </body>
 </html>

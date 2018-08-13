@@ -2,13 +2,48 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>demographic</title>
+	<title>page8</title>
 
-    <style>
+     <style>
         .row{
             margin-left: 0;
             margin-right: 0;
         }
+        .myButton {
+	-moz-box-shadow: 0px 10px 14px -7px #ffffff;
+	-webkit-box-shadow: 0px 10px 14px -7px #ffffff;
+	box-shadow: 0px 10px 14px -7px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+	background-color:#ffffff;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Courier New;
+	font-size:24px;
+	font-weight:bold;
+	padding:10px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+	background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+	background-color:#f6f6f6;
+}
 
     </style>
 
@@ -16,13 +51,41 @@
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script>
+        function check() {
+            var count=0;
+            var realIndex = 0;
+            for(var i=0;i<$('#page8 input').length;i++){
+                if($($('#page8 input')[i])[0].type=='text'){
+                    if($($('#page8 input')[i]).val().length>0){
+                        count++;
+                    }
+                    realIndex++;
+                }
+                if($($('#page8 input')[i])[0].type=='radio'){
+                    if($($('#page8 input')[i]).prop('checked')){
+                        count++;
+                    }
+                    realIndex++;
+                }
+            }
+            if(count == 1){
+                window.location = 'page9';
+            }
+            else{
+                alert("Please finish all the questions!");
+            }
+        }
+    </script>
+
+
     <script type="text/javascript">
         function $$(id) {
             return document.getElementById(id)
         }
-        var remain=5;
+        var remain=10;
         function init() {
-            $$("btn8").innerHTML="Next ("+(remain--)+" second)";
+            $$("btn8").innerHTML="("+(remain--)+" second)";
             if(remain>0){
                 window.setTimeout(init,1000);
             }
@@ -41,7 +104,7 @@
         }
         if(localMsg && localMsg.length>=1){
             var realIndex=0;
-            for(var i=0;i<$('#page2 input').length;i++){
+            for(var i=0;i<$('#page8 input').length;i++){
                 if($($('#page8 input')[i])[0].type=='text'){
                     $($('#page8 input')[i]).val(localMsg[realIndex].text)
                     realIndex++;
@@ -53,6 +116,8 @@
                     realIndex++;
                 }
             }
+            $("btn8").disabled = false;
+            $("btn8").innerHTML = "Next";
         }
         $('#btn8').click(function () {
             var history=[];
@@ -95,54 +160,29 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-11">
-
-<div class="row">
-    <div class="col-md-6">
-        <img src="/static/smart_1.png" class="img-thumbnail" width="50%" height="50%">
-    </div>
-    <div class="col-md-6">
-        <img src="/static/freq_2.png" class="img-thumbnail" width="50%" height="50%">
-    </div>
-</div>
-<label for="position_mt">11. Which one do you prefer?</label>
+        <h2 for="position_mt"><b><font face="verdana">11. Which one do you prefer?</font></b></h2>
 <form role="form" class="form-horizontal" id="page8">
     <!-- question 2: gender -->
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_middle">
-                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> One ads in the page
+                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> <img src="/static/smart_1.png" class="img-thumbnail" width="60%" height="60%">
             </label>
         </div>
     </div>
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_top">
-                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> Two ads in the page simultanously
+                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> <img src="/static/freq_2.png" class="img-thumbnail" width="60%" height="60%">
             </label>
         </div>
     </div>
-    <div>
-    <button type="button" id="btn8" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="window.location='page9'">Next</button>
-    </div>
+
+    <h3 style="color: darkgray">page 8 out of 12</h3>
 </form>
-
-
-<ul class="pagination">
-    <li><a href="page7">&laquo;</a></li>
-    <li ><a href="demographic">1</a></li>
-    <li><a href="page2">2</a></li>
-    <li><a href="page3">3</a></li>
-    <li><a href="page4">4</a></li>
-    <li><a href="page5">5</a></li>
-    <li><a href="page6">6</a></li>
-    <li><a href="page7">7</a></li>
-    <li><a href="#"> 8</a></li>
-    <li><a href="#">9</a></li>
-    <li><a href="#">10</a></li>
-    <li><a href="#">11</a></li>
-    <li><a href="#">12</a></li>
-    <li><a href="#">13</a></li>
-    <li><a href="#">&raquo;</a></li></ul>
+    <div style="position:relative;left:550px">
+    <button type="button" id="btn8" disabled="disabled" class="myButton" onclick="check()"></button>
+    </div>
     </div>
 </div>
 
