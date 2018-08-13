@@ -9,6 +9,7 @@
             margin-left: 0;
             margin-right: 0;
         }
+<<<<<<< HEAD
         .myButton {
 	-moz-box-shadow: 0px 10px 14px -7px #ffffff;
 	-webkit-box-shadow: 0px 10px 14px -7px #ffffff;
@@ -44,6 +45,8 @@
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
 	background-color:#f6f6f6;
 }
+=======
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
 
     </style>
 
@@ -83,9 +86,15 @@
         function $$(id) {
             return document.getElementById(id)
         }
+<<<<<<< HEAD
         var remain=10;
         function init() {
             $$("btn7").innerHTML="("+(remain--)+" second)";
+=======
+        var remain=5;
+        function init() {
+            $$("btn7").innerHTML="Next ("+(remain--)+" second)";
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
             if(remain>0){
                 window.setTimeout(init,1000);
             }
@@ -163,19 +172,36 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-11">
+<<<<<<< HEAD
         <h2 for="position_mt"><b><font face="verdana">10. Which size of the mobile ads do you prefer?</font></b></h2>
+=======
+<div class="row">
+    <div class="col-md-6">
+        <img src="/static/rect.png" class="img-thumbnail" width="50%" height="50%">
+    </div>
+    <div class="col-md-6">
+        <img src="/static/banner1.png" class="img-thumbnail" width="50%" height="50%">
+    </div>
+</div>
+<label for="position_mt">10. Which size of the mobile ads do you prefer?</label>
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
 <form role="form" class="form-horizontal" id="page7">
     <!-- question 2: gender -->
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_middle">
+<<<<<<< HEAD
                 <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> <img src="/static/rect.png" class="img-thumbnail" width="60%" height="60%">
+=======
+                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> MEDIUM_RECTANGLE
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
             </label>
         </div>
     </div>
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_top">
+<<<<<<< HEAD
                 <input type="radio" name="position_mt" id="mt_top" value="mt_top"> <img src="/static/banner1.png" class="img-thumbnail" width="60%" height="60%">
             </label>
         </div>
@@ -185,6 +211,32 @@
     <div style="position:relative;left:550px">
     <button type="button" id="btn7" disabled="disabled" class="myButton" onclick="check()"></button>
     </div>
+=======
+                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> BANNER
+            </label>
+        </div>
+    </div>
+    <div>
+    <button type="button" id="btn7" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="check()">Next</button>
+    </div>
+</form>
+
+         <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li class="active"><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li><a href="#">11</a></li>
+            <li><a href="#">12</a></li>
+            <li><a href="#">end</a></li>
+        </ul>
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
 </div>
 </div>
 

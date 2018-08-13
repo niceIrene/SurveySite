@@ -4,11 +4,16 @@
 	<meta charset="utf-8">
 	<title>page11</title>
 
+<<<<<<< HEAD
      <style>
+=======
+    <style>
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
         .row{
             margin-left: 0;
             margin-right: 0;
         }
+<<<<<<< HEAD
         .myButton {
 	-moz-box-shadow: 0px 10px 14px -7px #ffffff;
 	-webkit-box-shadow: 0px 10px 14px -7px #ffffff;
@@ -47,6 +52,9 @@
         .p1{position:relative;}
         .p2{position:absolute;left:110px;bottom:0;}
         .p3{position:absolute;left:180px;bottom:0;}
+=======
+
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
     </style>
     <link rel="shortcut icon" href="http://uwaterloo.ca/favicon.ico" type="image/vnd.microsoft.icon" />
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -70,6 +78,7 @@
                     realIndex++;
                 }
             }
+<<<<<<< HEAD
             if(count == 1 && cnt ==2){
                 window.location = 'page12_1';
             }
@@ -93,6 +102,17 @@
         document.getElementById("image2").src="/static/1.png";
     }
 </script>
+=======
+            if(count == 1){
+                window.location = 'page12_1';
+            }
+            else{
+                alert("Please finish all the questions!");
+            }
+        }
+    </script>
+
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
 
     <script type="text/javascript">
         function $$(id) {
@@ -100,7 +120,11 @@
         }
         var remain=15;
         function init() {
+<<<<<<< HEAD
             $$("btn11").innerHTML="("+(remain--)+" second)";
+=======
+            $$("btn11").innerHTML="Next ("+(remain--)+" second)";
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
             if(remain>0){
                 window.setTimeout(init,1000);
             }
@@ -151,6 +175,10 @@
     })
 </script>
 </head>
+<<<<<<< HEAD
+=======
+<body onload="init()">
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
 
 
 <body onload="init()">
@@ -177,12 +205,25 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
+<<<<<<< HEAD
         <h2 for="position_mt"><b><font face="verdana">14. Do you like ads in the landing page, no or yes?</font></b></h2>
+=======
+<div class="row">
+    <div class="col-md-6">
+        <img src="/static/no.gif" class="img-thumbnail" width="110%" height="110%">
+    </div>
+    <div class="col-md-6">
+        <img src="/static/yes.gif" class="img-thumbnail" width="110%" height="110%">
+    </div>
+</div>
+<label for="position_mt">14. Do you like ads in the landing page?</label>
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
 <form role="form" class="form-horizontal" id="page11">
     <!-- question 2: gender -->
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_middle">
+<<<<<<< HEAD
                 <input type="radio" name="position_mt" id="mt_middle" value="mt_middle">
                 <div>
                     <img class="p1" id="image1" src="/static/1.png" class="img-thumbnail" width="49%" height="49%">
@@ -190,12 +231,16 @@
                     <button class="p3" type="button" onclick="stop1()">Stop</button>
                 </div>
 
+=======
+                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> No
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
             </label>
         </div>
     </div>
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_top">
+<<<<<<< HEAD
                 <input type="radio" name="position_mt" id="mt_top" value="mt_top">
                 <div>
                     <img class="p1" id="image2" src="/static/1.png" class="img-thumbnail" width="50%" height="50%">
@@ -212,6 +257,33 @@
     <div style="position:relative;left:550px">
     <button type="button" id="btn11" disabled="disabled" class="myButton" onclick="check()"></button>
     </div>
+=======
+                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> Yes
+            </label>
+        </div>
+    </div>
+    <div>
+    <button type="button" id="btn11" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="check()">Next</button>
+    </div>
+</form>
+
+          <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li class="active"><a href="#">11</a></li>
+            <li><a href="#">12</a></li>
+            <li><a href="#">end</a></li>
+        </ul>
+
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
     </div>
 </div>
 </body>

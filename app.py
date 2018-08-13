@@ -198,16 +198,36 @@ def upload_1():
     if request.method == 'POST':
         data = request.get_data()
         data = str(data, encoding="utf-8")
+<<<<<<< HEAD
         reslist = data.split('"')
+=======
+        print (data)
+        print (type(data))
+        print (data[0])
+        print (data[1])
+        print (data[28])
+        reslist = data.split('"')
+        print(reslist)
+        print(len(reslist))
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
         res = []
         for i in range(len(reslist)):
             tmp = i
             if ((tmp+1)%4 == 0):
                 res.append(reslist[tmp])
+<<<<<<< HEAD
         inputt = Result(res[0],res[1],res[2],res[3],res[4],res[5],res[7],res[6],res[9],res[8],res[11],res[10],res[13],res[12],
                         res[15],res[14],res[17],res[16],res[19],res[18],res[21],res[20],res[23],res[22],res[25],res[24],res[27],res[26],res[28])
         db.session.add(inputt)
         db.session.commit()
+=======
+        print (res)
+        print (len(res))
+        inputt = Result(res[0],res[1],res[2],res[3],res[4],res[5],res[7],res[6],res[9],res[8],res[11],res[10],res[13],res[12],
+                        res[15],res[14],res[17],res[16],res[19],res[18],res[21],res[20],res[23],res[22],res[25],res[24],res[27],res[26],res[28])
+        #db.session.add(inputt)
+        #db.session.commit()
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
         print("finish!")
     return render_template('thank_1.html')
 

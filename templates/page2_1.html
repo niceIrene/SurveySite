@@ -9,6 +9,7 @@
             margin-left: 0;
             margin-right: 0;
         }
+<<<<<<< HEAD
         .myButton {
 	-moz-box-shadow: 0px 10px 14px -7px #ffffff;
 	-webkit-box-shadow: 0px 10px 14px -7px #ffffff;
@@ -44,6 +45,8 @@
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
 	background-color:#f6f6f6;
 }
+=======
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
 
     </style>
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -80,9 +83,15 @@
             return document.getElementById(id)
         }
         var remain=10;
+<<<<<<< HEAD
         alert("For each question, there is a timer to guarantee that you have look carefully through the options. You can choose and go to the next question until the count down ends. Please make sure you have answered all the questions.");
         function init() {
             $$("btn1").innerHTML="("+(remain--)+" second)";
+=======
+        alert("For each question, you need to wait until the countdown ends.");
+        function init() {
+            $$("btn1").innerHTML="Next ("+(remain--)+" second)";
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
             if(remain>0){
                 window.setTimeout(init,1000);
             }
@@ -156,19 +165,36 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-11">
+<<<<<<< HEAD
         <h2 for="position_mt"><b><font face="verdana">5. Which position of the mobile ads do you prefer, top or middle?</font></b></h2>
+=======
+<div class="row">
+    <div class="col-md-6">
+        <img src="/static/top.png" class="img-thumbnail" width="50%" height="50%">
+    </div>
+    <div class="col-md-6">
+        <img src="/static/middle.png" class="img-thumbnail" width="50%" height="50%">
+    </div>
+</div>
+<label for="position_mt">5. Which position of the mobile ads do you prefer, top or middle?</label>
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
 <form role="form" class="form-horizontal" id="page2">
     <!-- question 2: gender -->
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_middle">
+<<<<<<< HEAD
                 <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> <img src="/static/top.png" class="img-thumbnail" width="60%" height="60%">
+=======
+                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> Top
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
             </label>
         </div>
     </div>
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_top">
+<<<<<<< HEAD
                 <input type="radio" name="position_mt" id="mt_top" value="mt_top"> <img src="/static/middle.png" class="img-thumbnail" width="60%" height="60%">
             </label>
         </div>
@@ -179,6 +205,31 @@
     <button type="button" id="btn1" disabled="disabled" class="myButton" onclick="check()"></button>
     </div>
 
+=======
+                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> Middle
+            </label>
+        </div>
+    </div>
+    <div>
+    <button type="button" id="btn1" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="check()">Next</button>
+    </div>
+</form>
+        <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li><a href="#">11</a></li>
+            <li><a href="#">12</a></li>
+            <li><a href="#">end</a></li>
+        </ul>
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
 
     </div>
 </div>

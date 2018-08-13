@@ -24,6 +24,7 @@
         }
         if(localMsg && localMsg.length>=1){
             var realIndex=0;
+<<<<<<< HEAD
             for(var i=0;i<$('#email input').length;i++){
                 if($($('#email input')[i])[0].type=='text'){
                     $($('#email input')[i]).val(localMsg[realIndex].text)
@@ -33,6 +34,17 @@
                     realIndex++;
                 }else if($($('#email input')[i])[0].type=='checkbox'){
                     $($('#email input')[i]).prop('checked',localMsg[realIndex].checkbox)
+=======
+            for(var i=0;i<$('#page2 input').length;i++){
+                if($($('#page2 input')[i])[0].type=='text'){
+                    $($('#page2 input')[i]).val(localMsg[realIndex].text)
+                    realIndex++;
+                }else if($($('#page2 input')[i])[0].type=='radio'){
+                    $($('#page2 input')[i]).prop('checked',localMsg[realIndex].radio)
+                    realIndex++;
+                }else if($($('#page2 input')[i])[0].type=='checkbox'){
+                    $($('#page2 input')[i]).prop('checked',localMsg[realIndex].checkbox)
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
                     realIndex++;
                 }
             }
@@ -67,16 +79,27 @@
             var f12=f11.concat(JSON.parse(window.localStorage.getItem("form12")));
             var f13=f12.concat(JSON.parse(window.localStorage.getItem("final")));
             console.log(f13);
+<<<<<<< HEAD
+=======
+            alert(JSON.stringify(f13));
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
             $.ajax(
                 {
                     type:"POST",
                     url:'/thank',
                     data:JSON.stringify(f13),
                     success:function (data) {
+<<<<<<< HEAD
                         alert('Success! Thank you for your participation!');
                     },
                     error:function (xhr,type) {
                         alert('Failed, something wrong happen to the server.');
+=======
+                        alert('success');
+                    },
+                    error:function (xhr,type) {
+                        alert('failed');
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
 
                     }
                 }

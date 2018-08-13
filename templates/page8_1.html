@@ -9,6 +9,7 @@
             margin-left: 0;
             margin-right: 0;
         }
+<<<<<<< HEAD
         .myButton {
 	-moz-box-shadow: 0px 10px 14px -7px #ffffff;
 	-webkit-box-shadow: 0px 10px 14px -7px #ffffff;
@@ -46,6 +47,11 @@
 }
 
     </style>
+=======
+
+    </style>
+
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
     <link rel="shortcut icon" href="http://uwaterloo.ca/favicon.ico" type="image/vnd.microsoft.icon" />
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -82,9 +88,15 @@
         function $$(id) {
             return document.getElementById(id)
         }
+<<<<<<< HEAD
         var remain=10;
         function init() {
             $$("btn8").innerHTML="("+(remain--)+" second)";
+=======
+        var remain=5;
+        function init() {
+            $$("btn8").innerHTML="Next ("+(remain--)+" second)";
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
             if(remain>0){
                 window.setTimeout(init,1000);
             }
@@ -162,6 +174,7 @@
 
 <div class="row">
     <div class="col-md-6">
+<<<<<<< HEAD
 
     </div>
     <div class="col-md-6">
@@ -169,18 +182,32 @@
     </div>
 </div>
         <h2 for="position_mt"><b><font face="verdana">11. Which one do you prefer?</font></b></h2>
+=======
+        <img src="/static/freq_2.png" class="img-thumbnail" width="50%" height="50%">
+    </div>
+    <div class="col-md-6">
+        <img src="/static/smart_1.png" class="img-thumbnail" width="50%" height="50%">
+    </div>
+</div>
+<label for="position_mt">11. Which one do you prefer?</label>
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
 <form role="form" class="form-horizontal" id="page8">
     <!-- question 2: gender -->
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_middle">
+<<<<<<< HEAD
                 <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> <img src="/static/freq_2.png" class="img-thumbnail" width="60%" height="60%">
+=======
+                <input type="radio" name="position_mt" id="mt_middle" value="mt_middle"> Two ads in the page simultanously
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
             </label>
         </div>
     </div>
     <div class="col-md-6">
         <div class="radio">
             <label for="mt_top">
+<<<<<<< HEAD
                 <input type="radio" name="position_mt" id="mt_top" value="mt_top"> <img src="/static/smart_1.png" class="img-thumbnail" width="60%" height="60%">
             </label>
         </div>
@@ -192,6 +219,32 @@
     <button type="button" id="btn8" disabled="disabled" class="myButton" onclick="check()"></button>
     </div>
 
+=======
+                <input type="radio" name="position_mt" id="mt_top" value="mt_top"> One ads in the page
+            </label>
+        </div>
+    </div>
+    <div>
+    <button type="button" id="btn8" disabled="disabled" style="width:150px;height:40px;font-size:14px;" onclick="check()">Next</button>
+    </div>
+</form>
+
+         <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li class="active"><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li><a href="#">11</a></li>
+            <li><a href="#">12</a></li>
+            <li><a href="#">end</a></li>
+        </ul>
+>>>>>>> c281dedab6237d5d618b80d7294b472f4d592f1d
     </div>
 </div>
 
